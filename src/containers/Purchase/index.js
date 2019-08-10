@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import propTypes from 'prop-types'
 import Header from "../../components/Header"
 import PurchaseForm from "./components/PurchaseForm"
 import Tip from "../../components/Tip"
@@ -62,8 +63,15 @@ class Purchase extends Component {
     }
 }
 
+Purchase.propTypes = {
+    quantity: propTypes.number,
+    showTip: propTypes.bool,
+    product: propTypes.array,
+    phone: propTypes.string,
+    totalPrice: propTypes.number
+}
+
 const mapStateToProps = (state, props) => {
-    console.log(props)
     const productId = props.match.params.id
     return {
         quantity: getQuantity(state),

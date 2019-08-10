@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import propTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import SerachBox from './components/SearchBox'
@@ -73,6 +74,13 @@ export class Search extends Component {
         clearHistoryKeywords()
     }
 
+}
+
+Search.propTypes = {
+    popularKeywords: propTypes.object,
+    relatedKeywords: propTypes.object,
+    inputText: propTypes.string,
+    historyKeywords: propTypes.array
 }
 
 const mapStateToProps = (state, props) => {

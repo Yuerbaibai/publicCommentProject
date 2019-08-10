@@ -77,7 +77,6 @@ export const actions = {
     }),
     removeOrder: () => {
         return (dispatch, getState) => {
-            console.log(getState())
             const { id } = getState().user.currentOrder
             if (id) {
                 dispatch(deleteOrderRequest())

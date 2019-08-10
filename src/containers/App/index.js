@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import propTypes from 'prop-types'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
@@ -56,6 +57,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     appActions: bindActionCreators(appActions, dispatch)
   }
+}
+
+App.propTypes = {
+  error: propTypes.string
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import propTypes from 'prop-types'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
 import ProductOverview from './components/ProductOverview'
@@ -13,7 +14,6 @@ import { actions as detailActions, getProduct, getRelatedShop } from '../../redu
 class ProductDetail extends Component {
     render() {
         const { product, relatedShop } = this.props
-        console.log(this.props)
         return (
             <div className="productDetail">
                 <Header title="团购详情" onBack={this.handleBack} grey />
@@ -49,6 +49,11 @@ class ProductDetail extends Component {
     handleBack = () => {
         this.props.history.goBack()
     }
+}
+
+ProductDetail.propTypes = {
+    product: propTypes.array,
+    relatedShop:  propTypes.array
 }
 
 const mapStateToProps = (state, props) => {

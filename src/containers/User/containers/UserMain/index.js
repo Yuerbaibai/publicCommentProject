@@ -14,7 +14,6 @@ const tabTitles = ['全部订单', '待付款', '可使用', '退款/售后']
 class UserMain extends Component {
     render() {
         const { currentTab, data, deleteOrderId, commentOrderId, orderComment, orderStars } = this.props
-        console.log(this.props)
         return (
             <div className="userMain">
                 <div className="userMain__menu">
@@ -58,7 +57,6 @@ class UserMain extends Component {
         )
     }
     handleClick = (index) => {
-        console.log(this.props.userActions)
         this.props.userActions.setCurrentTab(index)
     }
     //删除订单

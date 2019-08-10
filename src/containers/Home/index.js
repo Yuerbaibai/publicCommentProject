@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import propTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Category from './components/Category'
@@ -14,7 +15,6 @@ import { actions as homeActions, getLikes, getDiscounts, getPageCountOfLikes } f
 class Home extends Component {
     render() {
         const { likes, discounts, pageCount } = this.props
-        console.log("this.props", this.props)
         return (
             <div>
                 <HomeHeader />
@@ -49,6 +49,12 @@ const mapDispatchToProps = (dispatch) => {
     return {
         homeActions: bindActionCreators(homeActions, dispatch)
     }
+}
+
+Home.propTypes = {
+    likes: propTypes.array,
+    discounts: propTypes.array,
+    pageCount: propTypes.number
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

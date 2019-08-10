@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import propTypes from 'prop-types'
 import { connect } from 'react-redux'
 import SearchList from './components/ShopList'
 import SearchHeader from './components/SearchHeader'
@@ -9,7 +10,6 @@ import {getSearchedShops, getCurrentKeyword} from '../../redux/modules/search'
 class SearchResult extends Component {
     render() {
         const {searchShopsByKeywords,  currentKeyword } = this.props
-        console.log(this.props)
         return (
             <div className="searchResult">
                 <SearchHeader onBack={this.handleBack} onSearch={this.handleSearch} />
@@ -29,8 +29,12 @@ class SearchResult extends Component {
     }
 }
 
+SearchResult.propTypes = {
+    searchShopsByKeywords: propTypes.string,
+    currentKeyword: propTypes.string
+}
+
 const mapStateToProps = (state, props) => {
-    console.log(getSearchedShops(state))
     return {
         searchShopsByKeywords: getSearchedShops(state),
         currentKeyword: getCurrentKeyword(state)

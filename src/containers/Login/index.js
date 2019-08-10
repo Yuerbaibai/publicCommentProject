@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import propTypes from 'prop-types'
 import LoginHeader from './components/LoginHeader'
 import LoginForm from './components/LoginForm'
 import { actions as loginActions, getUsername, getPassword, isLogin } from '../../redux/modules/login'
@@ -55,6 +56,13 @@ const getStateToProps = (state, props) => {
 
 const getDispatchToProps = (dispatch) => {
     return { loginActions: bindActionCreators(loginActions, dispatch) }
+}
+
+Login.propTypes = {
+    username: propTypes.string, 
+    password: propTypes.string, 
+    login: propTypes.bool, 
+    location: propTypes.object
 }
 
 export default connect(getStateToProps, getDispatchToProps)(Login)
